@@ -63,6 +63,17 @@ bool rac::EntityManager::isDead(EntityId entity)
 	return m_entities[entity.getIndex()].getVersion() != entity.getVersion();
 }
 
+void rac::EntityManager::addComponent(EntityId entity, rac::u32 type)
+{
+	if (!isDead(entity))
+		m_entities[entity.getIndex()].addComponent(type);
+}
+
+void rac::EntityManager::removeComponent(EntityId entity, rac::u32 type)
+{
+	m_entities[entity.getIndex()].removeComponent(type);
+}
+
 bool rac::EntityManager::hasComponents(EntityId entity, ComponentMask mask)
 {
 	return m_entities[entity.getIndex()].hasComponents(mask);

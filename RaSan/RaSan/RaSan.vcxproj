@@ -122,18 +122,23 @@
     <ClInclude Include="include\RaSan\detail\Types.h" />
     <ClInclude Include="include\RaSan\Entity.h" />
     <ClInclude Include="include\RaSan\EntityManager.h" />
+    <ClInclude Include="include\RaSan\EntityPre.h" />
+    <ClInclude Include="include\RaSan\RemoveList.h" />
     <ClInclude Include="include\RaSan\Settings.h" />
     <ClInclude Include="include\RaSan\System.h" />
     <ClInclude Include="include\RaSan\SystemManager.h" />
     <ClInclude Include="include\RaSan\World.h" />
+    <ClInclude Include="include\Unen\StringParser.h" />
     <ClInclude Include="include\Unen\TList.h" />
     <ClInclude Include="include\Unen\Unen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ComponentContainer.cpp" />
+    <ClCompile Include="source\Entity.cpp" />
     <ClCompile Include="source\EntityManager.cpp" />
     <ClCompile Include="source\HasEntityChecker.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\RemoveList.cpp" />
     <ClCompile Include="source\System.cpp" />
     <ClCompile Include="source\SystemManager.cpp" />
     <ClCompile Include="source\World.cpp" />

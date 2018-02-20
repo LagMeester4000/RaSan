@@ -23,6 +23,14 @@ void rac::SystemManager::addEntity(EntityId entity, EntityManager & entityManage
 	}
 }
 
+void rac::SystemManager::removeEntity(EntityId entity)
+{
+	for (size_t i = 0; i < m_systems.size(); ++i)
+	{
+		m_systems[i]->removeEntity(entity);
+	}
+}
+
 void rac::SystemManager::removeComponent(EntityId entity, ComponentMask & oldMask, ComponentMask & newMask)
 {
 	for (size_t i = 0; i < m_systemMetadata.size(); ++i)

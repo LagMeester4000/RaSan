@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/RaSan/World.h"
+#include "../include/RaSan/Entity.h"
 
 class Position : public rac::Component
 {
@@ -61,6 +62,10 @@ int main()
 	w.addSystem<PositionSystem>();
 	w.addSystem<PosMovSystem>();
 
+	
+	rac::Entity e = w.createEntity();
+	e.addComponent<Position>();
+
 	//some entities
 	rac::EntityId ent1, ent2, ent3;
 
@@ -86,3 +91,46 @@ int main()
 	system("pause");
 	return 0;
 }
+
+
+//#include <iostream>
+//
+//template<size_t N> 
+//constexpr char getCharacter(const char(&arr)[N], size_t i)
+//{
+//	return arr[i];
+//}
+//
+//template<char C, size_t I>
+//struct StringLength
+//{
+//	template<size_t N>
+//	constexpr static size_t func(const char(&arr)[N])
+//	{
+//		return StringLength<getCharacter(arr, I + 1), I + 1>::func(arr);
+//	}
+//};
+//
+//template<size_t I>
+//struct StringLength<'\n',I>
+//{
+//	template<size_t N>
+//	constexpr static size_t func(const char(&arr)[N])
+//	{
+//		return I;
+//	}
+//};
+//
+//template<size_t N>
+//constexpr size_t stringLength(const char(&arr)[N])
+//{
+//	return StringLength<getCharacter(arr, 0), 0>::func(arr);
+//}
+//
+//
+//void main()
+//{
+//	std::cout << stringLength("klaa") << std::endl;
+//
+//	system("pause");
+//}

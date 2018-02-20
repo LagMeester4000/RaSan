@@ -24,6 +24,13 @@ namespace rac
 		
 		bool hasComponents(ComponentMask mask);
 
+		template<typename T>
+		bool hasComponent()
+		{
+			auto type = TypeIndex<Component>::get<T>();
+			return m_hasComponents[type];
+		}
+
 		ComponentMask getComponentMask();
 	private:
 		rac::u8 m_version = 0;
@@ -47,13 +54,22 @@ namespace rac
 		//register component for entity
 		template<typename T>
 		void addComponent(EntityId entity);
+		void addComponent(EntityId entity, rac::u32 type);
 
 		//unregister component for entity
 		template<typename T>
 		void removeComponent(EntityId entity);
+		void removeComponent(EntityId entity, rac::u32 type);
 
 		//test if an entity has certain components
 		bool hasComponents(EntityId entity, ComponentMask mask);
+
+		//test if an entity has a certain component
+		template<typename T>
+		bool hasComponent(EntityId entity)
+		{
+			return m_entities[entity.getIndex()].hasComponent<T>();
+		}
 
 		//get a copy of the component mask
 		ComponentMask getComponentMask(EntityId entity);

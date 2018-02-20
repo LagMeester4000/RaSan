@@ -152,17 +152,17 @@ namespace rac
 				bag = m_componentBags[componentType];
 			}
 
-			//check if bag exists
+			//check if bag doesnt exist
 			if (!bag)
 			{
-				//create new component bag
-				ComponentBagBase *push = new ComponentBag<T>();
-				m_componentBags.insert(push, componentType);
+				return;
 			}
 
 			//add component to bag
 			m_componentBags.get(componentType)->remove(entity);
 		}
+
+		void removeComponent(EntityId entity, rac::u32 type);
 
 		template<typename T>
 		ComponentBag<T> *getBag()
